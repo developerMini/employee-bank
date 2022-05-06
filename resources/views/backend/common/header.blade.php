@@ -63,7 +63,9 @@
 
     <link href="{{ URL::asset('backend/css/theme-teal.css') }}" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    
+    <script>
+			var baseUrl = "{!! url('admin/') !!}";
+		</script>
   </head>
 
 

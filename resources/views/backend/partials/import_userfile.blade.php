@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-link waves-effect">Import data</button>
+                    <button type="submit" class="btn btn-link waves-effect" id="submit-import">Import data</button>
                     <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                 </div>
             </form>
@@ -38,6 +38,7 @@
         submitHandler: function(form) {
             var $this = $(form);
             var formData = new FormData(form);
+            $("#submit-import").attr("disabled", true);
             $.ajax({
                 url: "{{route('user.import')}}",
                 type: 'POST',
@@ -51,8 +52,10 @@
                         $('#importModal').modal('hide');
                         swal("Success", "File Uploaded", "success");
                     }
+                    $("#submit-import").attr("disabled", false);
                 },
                 error: function(response) {
+                    $("#submit-import").attr("disabled", false);
                     swal("Error", "Plese Try again later", "error");
                 }
             });

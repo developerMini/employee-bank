@@ -20,7 +20,7 @@ class UsersImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         $isexit = User::where('email', $row['email'])->first();
-        if(empty($isexit)){
+        if(empty($isexit) && $row['email'] != ''){
             $user = new User();
             $user->name =  $row['name'];
             $user->email = $row['email'];

@@ -20,5 +20,8 @@ Route::namespace('backend')->group(function () {
         Route::get('logout', 'AuthController@logout')->name('logout');
         Route::get('profile', 'UserController@index')->name('profile');
         Route::post('user-import', 'UserController@import')->name('user.import');
+        Route::get('user-list', 'UserController@list')->name('user.list');
+        Route::get('user-list-ajax', 'UserController@ajaxList')->name('user.list.ajax');
+        Route::get('user-view/{user:id}', 'UserController@show')->name('user.view');
     });    
 });

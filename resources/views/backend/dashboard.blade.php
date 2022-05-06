@@ -1,5 +1,11 @@
 @extends('backend.common.main')
-
+@section('pagecss')
+<style>
+	.hover-hand{
+		cursor: pointer;
+	}
+</style>
+@endsection
 @section('content')
 
 	<div class="block-header">
@@ -11,16 +17,17 @@
 				<div class="icon">
 					<i class="material-icons">face</i>
 				</div>
+				<a href="{{route('user.list')}}">
 				<div class="content">
 					<div class="text">Employee</div>
 					<div class="number">{{$userCount}}</div>
 				</div>
+				</a>
 			</div>
 
 		</div>
 		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			<div class="info-box-2 bg-blue hover-zoom-effect" data-toggle="modal" data-target="#importModal">
-				
+			<div class="info-box-2 bg-blue hover-zoom-effect hover-hand" data-toggle="modal" data-target="#importModal">
 				<div class="icon">
 					<i class="material-icons">backup</i>
 				</div>

@@ -472,3 +472,34 @@ $(function () {
 
     setTimeout(function () { $('.page-loader-wrapper').fadeOut(); }, 50);
 });
+
+function getWebUrl(pageName){
+    return baseUrl + pageName;
+}
+
+function openModalAndShow(endPoint, callback = null){
+    $.ajax({
+        url : endPoint,
+        type : 'GET',
+        dataType : "json",
+        data : {},
+        success: function(response) {
+          if(response.status){
+            if($("#"+response.modalId).length > 0){
+              $("#"+response.modalId).modal('hide');
+            }
+            
+            setTimeout(function(){
+              $("#"+response.modalId).remove();
+              $("body").append(response.html);
+              $("#"+response.modalId).modal('show');
+  
+              if (typeof callback == "function") {
+                callback();
+              }
+            },200)
+            
+          }
+        }
+      });
+  }

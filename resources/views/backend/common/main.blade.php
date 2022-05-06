@@ -2,6 +2,7 @@
 <html>
 
 @include('backend.common.header')
+@yield('pagecss')
 @include('backend.common.side_nav')
 
 <section class="content">
@@ -14,7 +15,6 @@
 @include('backend.common.footer')
 
 @yield('pageJs')
-
 @yield('pagescripts')
 
 </body>
