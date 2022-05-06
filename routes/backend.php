@@ -18,6 +18,7 @@ Route::namespace('backend')->group(function () {
     Route::middleware('auth:backend')->group(function () {
         Route::get('/', 'DashboardController@index')->name('home');
         Route::get('logout', 'AuthController@logout')->name('logout');
-        Route::get('profile', 'User@index')->name('profile');
+        Route::get('profile', 'UserController@index')->name('profile');
+        Route::post('user-import', 'UserController@import')->name('user.import');
     });    
 });

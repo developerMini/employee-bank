@@ -15,7 +15,8 @@ class DashboardController  extends Controller
       $user = Auth::user();
       $meta_title = 'Dashboard';
       $body_class= 'dashboard';
-      return view('backend.dashboard', compact('user', 'meta_title','body_class'));
+      $userCount = User::get()->count();
+      return view('backend.dashboard', compact('user', 'meta_title','body_class','userCount'));
     }
         
 }
